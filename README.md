@@ -24,4 +24,13 @@ $plaintext = "foo";
 $hashdigest = EvilHash::hash($plaintext, $key);
 print($hashdigest);
 ```
-Additionally it is worth noting that you can change the constant that the hash function uses, as well as the default value when no key/constant is provided on lines 9 and 14 respectively.
+finally you can also tell the hash function to run the individual hash algorithms more than once at the cost of increased CPU load
+```php
+require_once('evilHash.php');
+$plaintext = "foo";
+$key = "ThisShouldBeAR4n|)0mzSTRNG";
+$numberOfIterations = 5;
+$hashdigest = EvilHash::hash($plaintext, $key, $numberOfIterations);
+print($hashdigest);
+```
+P.S. it is worth noting that you can change name of the constant that the hash function uses, as well as the default value when no key/constant is provided on lines 11 and 15 respectively.
